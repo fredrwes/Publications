@@ -1,2 +1,2 @@
 # Publications
-Source code used to process, manipulate and plot geochemical data for publication.
+Source code used to process, manipulate and plot geochemical data for publications.
