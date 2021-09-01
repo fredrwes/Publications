@@ -8,6 +8,15 @@ from sklearn.decomposition import PCA
 from matplotlib.ticker import AutoMinorLocator
 plt.close('all')
 
+# The PCA analysis code in function Figs_7_and_8() is based on Serafeim Loukas's original post (CC BY-SA 4.0)
+# on StackExchange (https://stackoverflow.com/a/50845697/5025009). S. Loukas's
+# code was modified to fit the aim of this scientific contribution.
+# The remaining code is modified from Fredrik Wesenlund's former work, available on Github:
+# https://github.com/fredrwes/Publications/blob/master/MarPetGeo/Wesenlund_et_al_2021_MPG.py
+
+# The code below is licensed under CC BY-SA 4.0.
+# Link to licence: https://creativecommons.org/licenses/by-sa/4.0/
+
 sns.set_context("paper")
 sns.set_style('ticks')
 mpl.rcParams['pdf.fonttype'] = 42
@@ -125,6 +134,8 @@ def Fig_6():
 
     plt.savefig('Fig_6_HCA_RAW.pdf')
 
+
+
 def Figs_7_and_8():
     X_EF.sort_values(by=['Composite height (m)'], inplace=True)
     hue = X_EF['Stratigraphic unit']
@@ -239,6 +250,19 @@ def Figs_7_and_8():
         ax[1,i].set_xlabel("PC" + str(pcs[i]+1) + " (" + str(round(pca.explained_variance_ratio_[i] * 100, 2)) + " % of variance)")
         sns.despine()
         plt.savefig('Fig_8_PCA_logs_RAW.pdf')
+
+def make_stats():
+    categories = ['Stratigraphic unit','Facies']
+    variables = df.columns
+    d = {}
+    
+    for c in categories:
+        for v in variables:
+            d[c] = df.groupby(c).agg({v : ['count','min', np.mean, np.std(ddof = 1), 'max']}).round(2)
+            
+    table_concat = pd.concat([d['Stratigraphic unit'], d['Facies'], d['Cluster']], axis = 0).T
+    table_concat.to_excel('Wesenlund_et_al_MPG_stats.xlsx')
+    print(table_concat)
 
 Fig_5()
 Fig_6()
