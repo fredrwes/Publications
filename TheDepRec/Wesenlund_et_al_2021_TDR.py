@@ -33,7 +33,7 @@ params = {'legend.fontsize': 6,
 plt.rcParams.update(params)
 
 palette = ['#4A412A', '#F0E442', '#E69F00', '#56B4E9', '#009E73', '#0072B2', '#CC79A7', '#D55E00']
-df = pd.read_excel('Appendix_C.xlsx', skipfooter=1)
+df = pd.read_excel('Appendix_B.xlsx', skipfooter=1)
 df = df.set_index("Sample ID")
 df_no_outliers = df.drop(['BLA2-18-49','BLA2-18-65','SKØ2-18-11'])
 df_no_outliers.reset_index(inplace=True)
@@ -133,8 +133,6 @@ def Fig_6():
                )
 
     plt.savefig('Fig_6_HCA_RAW.pdf')
-
-
 
 def Figs_7_and_8():
     X_EF.sort_values(by=['Composite height (m)'], inplace=True)
@@ -252,18 +250,16 @@ def Figs_7_and_8():
         plt.savefig('Fig_8_PCA_logs_RAW.pdf')
 
 def make_stats():
-    categories = ['Stratigraphic unit','Facies']
-    variables = df.columns
-    d = {}
-    
-    for c in categories:
-        for v in variables:
-            d[c] = df.groupby(c).agg({v : ['count','min', np.mean, np.std(ddof = 1), 'max']}).round(2)
-            
-    table_concat = pd.concat([d['Stratigraphic unit'], d['Facies'], d['Cluster']], axis = 0).T
-    table_concat.to_excel('Wesenlund_et_al_MPG_stats.xlsx')
-    print(table_concat)
+    df_temp = df.drop('Composite height (m)', axis = 1)
+    df_strat = df_temp.groupby('Stratigraphic unit')
+    tbl_agg1 = df_strat.aggregate(['min','mean','std','max'])
+    df_facies = df_temp.groupby('Facies')
+    tbl_agg2 = df_facies.aggregate(['min','mean','std','max'])
+    tbl_agg = pd.concat([tbl_agg1,tbl_agg2], axis = 0)
+    tbl_agg = tbl_agg.drop('NGS SR-1', axis = 0)
+    tbl_agg.T.to_excel('Appendix_stats.xlsx')
 
 Fig_5()
 Fig_6()
 Figs_7_and_8()
+make_stats()
