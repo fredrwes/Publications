@@ -4,7 +4,7 @@ Welcome to my GitHub! Here you will find Python source code that was used to imp
 
 ## Wesenlund et al. (2021) - Marine and Petroleum Geology
 
-Fredrik Wesenlund, Sten-Andreas Grundvåg, Victoria Sjøholt Engelschiøn, OlafThießen, and Jon Halvard Pedersen.
+Fredrik Wesenlund, Sten-Andreas Grundvåg, Victoria Sjøholt Engelschiøn, Olaf Thießen, and Jon Halvard Pedersen.
 "Linking facies variations, organic carbon richness and bulk bitumen content – A case study of the organic-rich Middle Triassic shales from eastern Svalbard."
 *Marine and Petroleum Geology* **132**.
 DOI: https://doi.org/10.1016/j.marpetgeo.2021.105168
