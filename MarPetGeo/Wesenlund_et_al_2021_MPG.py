@@ -39,7 +39,15 @@ stratlimits_Skrukkefjellet = [32.5, # lower to middle - upper Muen Mb height (m)
 
 # Color palette (Wong, 2011 - https://www.nature.com/articles/nmeth.1618)
 wong_Botneheia = ['#F0E442','#E69F00','#56B4E9','#009E73','#0072B2','#CC79A7'] 
-df_MPG = pd.read_excel('Appendix_A.xlsx')
+
+# Collect Excel file from supplementary data data from article website, DOI:
+# https://doi.org/10.1016/j.marpetgeo.2021.105168
+
+# Direct URL to download Excel file:
+# https://ars.els-cdn.com/content/image/1-s2.0-S0264817221002713-mmc1.xlsx
+
+# Importing Excel file and convert to DataFrame:
+df_MPG = pd.read_excel(r'1-s2.0-S0264817221002713-mmc1.xlsx', skipfooter=1)
 df_MPG = df_MPG.set_index('Locality') # split data into locality:
 df_MPG_Blanknuten = df_MPG.loc["Blanknuten"] # Blanknuten
 df_MPG_Skrukkefjellet = df_MPG.loc["Skrukkefjellet"] # Skrukkefjellet
@@ -55,7 +63,7 @@ def fig_9():
     size = 'Locality'
     markers = ['o','D','s','P']
     columns = ['TOC (wt. %)','TIC (wt. %)','TS (wt. %)']
-        
+    
     for s in locality:
         if s == 'Blanknuten':   
             data = df_MPG_Blanknuten
@@ -135,19 +143,19 @@ def fig_10():
     
     x = np.linspace(0, df_MPG['TOC (wt. %)'].max(), 2)
     
-    # TOC/TS = 6.5, from Alsenz et al. (2015, Figure 3)
+    # TOC/TS = 6.5, from Alsenz et al. (2015, their figure 3)
     plt.plot(x, x/6.5, color = 'k', linestyle = "-", linewidth=0.5)
     plt.text(10,2,'TOC/TS = 6.5')
     
-    # Normal marine trend line, from Berner and Raiswell (1984, Figure 2)
+    # Normal marine trend line, from Berner and Raiswell (1984, their figure 2)
     plt.plot(x, x/2.8, color = 'b', linestyle = "-", linewidth=0.5)
     plt.text(8.5,4,'Normal marine',color='b')
     
-    # Upper marine boundary, from Berner and Raiswell (1984, Figure 2)
+    # Upper marine boundary, from Berner and Raiswell (1984, their figure 2)
     x = np.linspace(0,4.7,100)
     plt.plot(x, -0.0766*x**2 + 0.775*x, color = 'b', linestyle = ":", linewidth=1)
     
-    # Lower marine boundary, from Berner and Raiswell (1984, Figure 2)
+    # Lower marine boundary, from Berner and Raiswell (1984, their igure 2)
     x = np.linspace(0,5.3,100)
     plt.plot(x, 0.0413*x**2 + 0.0615*x, color = 'b', linestyle = ":", linewidth=1)
     
@@ -269,7 +277,7 @@ def fig_13():
     ## Save figure and show
     plt.savefig('Fig_13_UNEDITED.pdf', bbox_inches='tight')
     plt.show()
-    
+
 def fig_14():
     fig = px.scatter_ternary(df_MPG,
     a="SAT (%)",
@@ -402,7 +410,7 @@ def fig_16():
     size = 'Locality'
     hue = 'Stratigraphic unit'
 
-    # DUNEDITEDing dashed lines in EOM vs TOC template, plotting and saving figure
+    # Plotting dashed lines in EOM vs TOC template, plotting and saving figure
     #########################################################################
 
     fig, ax = plt.subplots(1,1, figsize=(6, 4), squeeze = True,)
@@ -453,10 +461,11 @@ def fig_16():
 
 def fig_17():
     
-    # The PCA analysis code is based on Serafeim Loukas's original post (CC BY-SA 4.0)
-    # on StackExchange (https://stackoverflow.com/a/50845697/5025009). S. Loukas's
-    # code was modified to fit the aim of this scientific contribution.
-    # The code below is licensed under CC BY-SA 4.0.
+    # The PCA analysis code below is based on Serafeim Loukas's original
+    # post (CC BY-SA 4.0) on StackExchange
+    # (https://stackoverflow.com/a/50845697/5025009).
+    # S. Loukas's code was modified to fit the aim of this
+    # scientific contribution. The code below is licensed under CC BY-SA 4.0.
     # Link to licence: https://creativecommons.org/licenses/by-sa/4.0/    
         
     # splitting and sorting relevant variables from dataframes
@@ -560,6 +569,9 @@ def fig_18():
     plt.setp(cg.ax_heatmap.xaxis.get_majorticklabels(), rotation=45, horizontalalignment='right')
     plt.savefig('Fig_18_UNEDITED.pdf')
 
+# Making statistics
+# PS! note that delta degrees of freedom = 0 for the np.std() function.
+
 def make_stats():
     categories = ['Stratigraphic unit','Facies','Cluster']
     d = {}
@@ -585,7 +597,7 @@ def make_stats():
     table_concat.to_excel('Wesenlund_et_al_MPG_stats.xlsx')
     print(table_concat)
 
-# Plotting figures and generating .pdfs
+# Make function that plots and makes pdfs
 
 def plot_all_figs():
     fig_9()
@@ -597,5 +609,8 @@ def plot_all_figs():
     fig_17()
     fig_18()
 
-#plot_all_figs()
-#make_stats()
+# PLot the figures
+plot_all_figs()
+
+# Generate statistics
+make_stats()
