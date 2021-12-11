@@ -25,4 +25,6 @@ This folder includes raw GCMS data (.raw file extension) of the Norwegian Geoche
 
 ## GC-FID data processing
 
-Currently in preparation.
+This folder includes raw GCFID data (.cdf file extension) of the Norwegian Geochemical Standard North Sea Oil - 1 (NGS NSO-1) analyzed using a Varian GCFID instrument. The .cdf file is converted from a .run file using the Varian Star Chromatography Workstation Interactive Graphics software (v. 6.30). The resulting .cdf file is then imported by the .py script, subsequently extracting the FID response (V) from the .txt file and exported to a .csv file. An extra column including the instrument run time (0 to 90 minutes) is added.
+
+Many of the benefits described in the previous section also applies to this approach.
