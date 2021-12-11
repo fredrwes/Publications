@@ -21,7 +21,7 @@ This folder includes raw GCMS data (.raw file extension) of the Norwegian Geoche
 * The data is non-proprietary (if in .csv format) and can therefore be investigated by readers who do not own the described proprietary software solutions
 * The data can easily be read by other (open-source) software solutions for further processing or plotting, e.g. using Python and associated libraries
 * The data can be stored in a data repository using common conventions (i.e., as a .csv file rather than a proprietary binary file)
-* if the metadata included in the .raw file is deemed unnecessary, the amount of data per sample can be reduced significantly using the Python script above
+* If the metadata included in the .raw file is deemed unnecessary, the amount of data per sample can be reduced significantly using the Python script above
 
 ## GC-FID data processing
 
