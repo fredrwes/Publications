@@ -16,6 +16,10 @@ Fredrik Wesenlund, Sten-Andreas Grundvåg, Victoria Sjøholt Engelschiøn, Olaf 
 *The Depositional Record*.
 DOI: https://doi.org/10.1002/dep2.182
 
+## Wesenlund et al. (in prep.) - Paper III in PhD degree
+
+Currently in preparation.
+
 ## GC-MS data processing
 
 This folder includes raw GC-MS data (.raw file extension) of the Norwegian Geochemical Standard North Sea Oil - 1 (NGS NSO-1) analyzed using a Thermo Scientific Trace 1310 gas chromatograph coupled to a Thermo Scientific TSQ 8000 Triple Quadrupole MS quadropole instrument. The .raw file is converted to a .txt file using Thermo Xcalibur Roadmap --> Tools --> File converter (v. 3.1.66.10). The resulting .txt file is then imported by the .py script, which subsequently extracts the m/z ratios from the .txt file and exports these as a .csv file. In the .csv file, each column represent a m/z ratio (e.g., 191 [terpanes]), and an extra column which shows the instrument run time (9 to 125 minutes) is added. Some benefits of extracting the single ion monitoring (SIM) data from a .raw file to a .csv spreadsheet file are provided below:
