@@ -6,7 +6,7 @@ Welcome! Here you will find Python source code that was used to import, process 
 
 Fredrik Wesenlund, Sten-Andreas Grundvåg, Victoria Sjøholt Engelschiøn, Olaf Thießen, and Jon Halvard Pedersen (2021).
 "Linking facies variations, organic carbon richness and bulk bitumen content – A case study of the organic-rich Middle Triassic shales from eastern Svalbard."
-*Marine and Petroleum Geology* **132**.
+*Marine and Petroleum Geology* **132**, 105168.
 DOI: https://doi.org/10.1016/j.marpetgeo.2021.105168
 
 ## Wesenlund et al. (2022) - The Depositional Record
