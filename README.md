@@ -1,6 +1,6 @@
 # Publications
 
-Welcome! Here you will find Python source code that was used to import, process and plot geochemical data for publications. This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.
+Welcome! Here you will find Python source code that was used to import, process and plot geochemical data for scientific publications. This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.
 
 ## Wesenlund et al. (2021) - Marine and Petroleum Geology
 
