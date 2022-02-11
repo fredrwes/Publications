@@ -9,10 +9,12 @@ Fredrik Wesenlund, Sten-Andreas Grundvåg, Victoria Sjøholt Engelschiøn, Olaf 
 *Marine and Petroleum Geology* **132**.
 DOI: https://doi.org/10.1016/j.marpetgeo.2021.105168
 
-
 ## Wesenlund et al. (2022) - The Depositional Record
 
-Currently in preparation.
+Fredrik Wesenlund, Sten-Andreas Grundvåg, Victoria Sjøholt Engelschiøn, Olaf Thießen, and Jon Halvard Pedersen (2022).
+"Multi-elemental chemostratigraphy of Triassic mudstones in eastern Svalbard: implications for source rock formation in front of the World’s largest delta plain."
+*The Depositional Record*.
+DOI: https://doi.org/10.1002/dep2.182
 
 ## GC-MS data processing
 
